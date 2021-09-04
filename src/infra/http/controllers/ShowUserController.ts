@@ -5,6 +5,7 @@ import {
   serverError,
   unauthorized,
   badRequest,
+  notfound,
 } from '../helpers/http-helpers';
 
 import {
@@ -32,7 +33,7 @@ export class ShowUserController implements Controller {
 
       switch (err.constructor) {
         case UserNotFoundError:
-          return unauthorized(err);
+          return notfound(err);
         case InvalidParamError:
           return unauthorized(err);
         case MissingParamError:
