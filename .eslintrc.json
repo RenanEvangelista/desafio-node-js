@@ -17,8 +17,20 @@
         "@typescript-eslint"
     ],
     "rules": {
+        "import/extensions": [
+          "error",
+          "ignorePackages",
+            {
+              "ts": "never"
+            }
+        ],
         "class-methods-use-this": "off",
         "camelcase": "off",
         "@typescript-eslint/no-namespace": "off"
+    },
+    "settings": {
+      "import/resolver": {
+        "typescript": {}
+      }
     }
 }
