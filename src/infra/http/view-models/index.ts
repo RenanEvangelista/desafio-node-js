@@ -1,2 +1,2 @@
-export * from './UserCreatedViewMode';
+export * from './UserCreatedViewModel';
 export * from './ShowUserViewModel';
