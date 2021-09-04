@@ -1,6 +1,7 @@
 import AuthenticateUserService from '@/services/AuthenticateUserService';
 import FakeUsersRepository from '@/repositories/fakes/FakeUsersRepository';
 import FakeHashProvider from '@/providers/HashProvider/fakes/FakeHashProvider';
+import { UserNotFoundError } from '@/errors';
 
 let fakeHashProvider: FakeHashProvider;
 let fakeUsersRepository: FakeUsersRepository;
@@ -30,5 +31,14 @@ describe('AuthenticateUserService', () => {
     });
 
     expect(typeof authenticateResponse).toBe('string');
+  });
+
+  it('should not be able to authenticate a non-existing user', async () => {
+    await expect(
+      authenticateUserService.execute({
+        email: 'test@test.com',
+        password: 'test12345',
+      }),
+    ).rejects.toBeInstanceOf(UserNotFoundError);
   });
 });
