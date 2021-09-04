@@ -1,14 +1,14 @@
 import { Controller } from '@/infra/http/contracts';
 
-import FakeUsersRepository from '@/repositories/fakes/FakeUsersRepository';
-import FakeHashProvider from '@/providers/HashProvider/fakes/FakeHashProvider';
+import PgUsersRepository from '@/repositories/implementations/PgUsersRepository';
+import BcryptHashProvider from '@/providers/HashProvider/implementations/BcryptHashProvider';
 import AuthenticateUserService from '@/services/AuthenticateUserService';
 import AuthenticateUsersController from '@/infra/http/controllers/AuthenticateUsersController';
 import { SignInValidator } from '@/validation/SignInValidator';
 
 export const makeAuthenticateUsersController = (): Controller => {
-  const usersRepository = new FakeUsersRepository();
-  const hashProvider = new FakeHashProvider();
+  const usersRepository = new PgUsersRepository();
+  const hashProvider = new BcryptHashProvider();
   const authenticateUserService = new AuthenticateUserService(
     usersRepository,
     hashProvider,
