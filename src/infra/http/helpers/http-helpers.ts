@@ -21,3 +21,8 @@ export const unauthorized = (error: Error): HttpResponse => ({
   statusCode: 401,
   data: error,
 });
+
+export const notfound = (error: Error): HttpResponse => ({
+  statusCode: 404,
+  data: error,
+});
