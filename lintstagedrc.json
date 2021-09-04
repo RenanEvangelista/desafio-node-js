@@ -1,0 +1,6 @@
+{
+  "*.ts": [
+    "eslint . --fix",
+    "npx --no-install commitlint --edit \"$1\""
+  ]
+}
