@@ -3,7 +3,7 @@ module.exports = {
   url: process.env.DATABASE_URL,
   synchronize: true,
   logging: true,
-  entities: [`${__dirname}/{dist}/infra/db/typeorm/entities/*.{ts,js}`],
+  entities: [`./{dist}/infra/db/typeorm/entities/*.{ts,js}`],
   ssl: true,
   extra: {
     ssl: {
