@@ -4,3 +4,4 @@ export * from './InvalidParamError';
 export * from './MissingParamError';
 export * from './InvalidParamTypeError';
 export * from './ServerError';
+export * from './AccessDeniedError';
