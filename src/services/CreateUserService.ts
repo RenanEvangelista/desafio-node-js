@@ -4,9 +4,13 @@ import IUsersRepository from '../repositories/IUsersRepository';
 import { EmailInUseError } from '@/errors';
 
 import User from '../models/User';
+import IHashProvider from '@/providers/HashProvider/IHashProvider';
 
 class CreateUserService {
-  constructor(private readonly usersRepository: IUsersRepository) {}
+  constructor(
+    private readonly usersRepository: IUsersRepository,
+    private readonly hashProvider: IHashProvider,
+  ) {}
 
   async execute({
     email,
@@ -20,10 +24,12 @@ class CreateUserService {
       throw new EmailInUseError();
     }
 
+    const passwordHashed = await this.hashProvider.generate(password);
+
     const user = await this.usersRepository.create({
       email,
       name,
-      password,
+      password: passwordHashed,
       telephones,
     });
 
