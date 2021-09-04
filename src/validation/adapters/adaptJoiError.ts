@@ -22,6 +22,7 @@ const adaptJoiError = (err: Joi.ValidationError | undefined) => {
     case 'number.base':
       throw new InvalidParamTypeError(error.context?.label || '', 'number');
     default:
+      throw new InvalidParamError(error.context?.label || '');
   }
 };
 
