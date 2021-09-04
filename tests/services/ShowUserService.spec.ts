@@ -1,5 +1,6 @@
 import ShowUserService from '@/services/ShowUserService';
 import FakeUsersRepository from '@/repositories/fakes/FakeUsersRepository';
+import { UserNotFoundError } from '@/errors';
 
 let fakeUsersRepository: FakeUsersRepository;
 let showUserService: ShowUserService;
@@ -21,5 +22,11 @@ describe('ShowUserService', () => {
     const userShow = await showUserService.execute(user.id);
 
     expect(userShow).toEqual(user);
+  });
+
+  it('ensure return user not found error', async () => {
+    await expect(showUserService.execute('invalid_id')).rejects.toBeInstanceOf(
+      UserNotFoundError,
+    );
   });
 });
