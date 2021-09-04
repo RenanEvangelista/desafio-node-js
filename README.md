@@ -73,7 +73,6 @@
 
 > ## Metodologias e Designs
 
-* TDD
 * Clean Architecture
 * DDD
 * Conventional Commits
