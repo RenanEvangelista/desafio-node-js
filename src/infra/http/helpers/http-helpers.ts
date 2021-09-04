@@ -1,6 +1,6 @@
 import { HttpResponse } from '../contracts/HttpResponse';
 
-import { ServerError } from '../../../errors';
+import { ServerError } from '@/errors';
 
 export const success = (data: any): HttpResponse => ({
   statusCode: 200,

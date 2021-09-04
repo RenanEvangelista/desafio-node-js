@@ -1,4 +1,4 @@
-import Validator from '../../../validation/contracts/validator';
+import Validator from '@/validation/contracts/validator';
 import { Controller, HttpResponse } from '../contracts';
 import { UserCreatedViewModel } from '../view-models';
 
@@ -8,9 +8,9 @@ import {
   InvalidParamError,
   MissingParamError,
   InvalidParamTypeError,
-} from '../../../errors';
+} from '@/errors';
 
-import CreateUserService from '../../../services/CreateUserService';
+import CreateUserService from '@/services/CreateUserService';
 
 class CreateUsersController implements Controller {
   constructor(

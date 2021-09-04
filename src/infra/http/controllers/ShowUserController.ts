@@ -1,4 +1,4 @@
-import ShowUserService from '../../../services/ShowUserService';
+import ShowUserService from '@/services/ShowUserService';
 import { Controller, HttpResponse } from '../contracts';
 import {
   success,
@@ -11,7 +11,7 @@ import {
   UserNotFoundError,
   InvalidParamError,
   MissingParamError,
-} from '../../../errors';
+} from '@/errors';
 
 import { ShowUserViewModel } from '../view-models';
 
