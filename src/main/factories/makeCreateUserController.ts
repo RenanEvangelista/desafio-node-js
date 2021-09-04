@@ -3,7 +3,7 @@ import { Controller } from '@/infra/http/contracts';
 import PgUsersRepository from '@/repositories/implementations/PgUsersRepository';
 import BcryptHashProvider from '@/providers/HashProvider/implementations/BcryptHashProvider';
 import CreateUserService from '@/services/CreateUserService';
-import CreateUsersController from '@/infra/http/controllers/CreateUserController';
+import { CreateUsersController } from '@/infra/http/controllers';
 import { SignUpValidator } from '@/validation/SignUpValidator';
 
 export const makeCreateUserController = (): Controller => {

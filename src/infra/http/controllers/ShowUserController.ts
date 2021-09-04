@@ -15,7 +15,7 @@ import {
 
 import { ShowUserViewModel } from '../view-models';
 
-class ShowUserController implements Controller {
+export class ShowUserController implements Controller {
   constructor(private readonly showUserService: ShowUserService) {}
 
   async handle(
@@ -49,5 +49,3 @@ export namespace ShowUserController {
     user_id: string;
   };
 }
-
-export default ShowUserController;

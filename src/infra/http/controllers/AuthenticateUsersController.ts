@@ -13,7 +13,7 @@ import {
   badRequest,
 } from '../helpers/http-helpers';
 
-class AuthenticateUsersController implements Controller {
+export class AuthenticateUsersController implements Controller {
   constructor(
     private readonly authenticateUserService: AuthenticateUserService,
     private readonly validator: Validator,
@@ -53,5 +53,3 @@ export namespace AuthenticateUsersController {
     password: string;
   };
 }
-
-export default AuthenticateUsersController;

@@ -12,7 +12,7 @@ import {
 
 import CreateUserService from '@/services/CreateUserService';
 
-class CreateUsersController implements Controller {
+export class CreateUsersController implements Controller {
   constructor(
     private readonly createUsersService: CreateUserService,
     private readonly validator: Validator,
@@ -57,5 +57,3 @@ export namespace CreateUsersController {
     telephones: Telephone[];
   };
 }
-
-export default CreateUsersController;
