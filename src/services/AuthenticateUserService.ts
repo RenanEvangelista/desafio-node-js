@@ -3,7 +3,7 @@ import { sign } from 'jsonwebtoken';
 import IHashProvider from '../providers/HashProvider/IHashProvider';
 import IUsersRepository from '../repositories/IUsersRepository';
 
-import { UserNotFoundError } from '@/errors';
+import { InvalidParamError, UserNotFoundError } from '@/errors';
 
 import { env } from '@/main/config';
 
@@ -23,6 +23,15 @@ class AuthenticateUserService {
 
     if (!user) {
       throw new UserNotFoundError();
+    }
+
+    const passwordMatched = await this.hashProvider.compare(
+      password,
+      user.password,
+    );
+
+    if (!passwordMatched) {
+      throw new InvalidParamError('email/password');
     }
 
     const token = sign(
