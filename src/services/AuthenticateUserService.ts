@@ -5,7 +5,7 @@ import IUsersRepository from '../repositories/IUsersRepository';
 
 import { InvalidParamError, UserNotFoundError } from '@/errors';
 
-import { env } from '@/main/config';
+import { env } from '@/main/config/env';
 
 interface IRequest {
   email: string;
@@ -40,6 +40,10 @@ class AuthenticateUserService {
         email: user.email,
       },
       env.jwt_secret,
+      {
+        subject: user.id,
+        expiresIn: env.jwt_expireIn,
+      },
     );
 
     return token;
