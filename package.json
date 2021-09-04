@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/RenanEvangelista/desafio-node-js/issues"
   },
-  "homepage": "https://github.com/RenanEvangelista/desafio-node-js#readme"
+  "homepage": "https://github.com/RenanEvangelista/desafio-node-js#readme",
+  "devDependencies": {
+    "typescript": "^4.4.2"
+  }
 }
