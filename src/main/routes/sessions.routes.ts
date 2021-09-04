@@ -1,17 +1,7 @@
 import { Router } from 'express';
-import { adaptRoute, adaptMiddleware } from '../adapters';
-import {
-  makeAuthenticateUsersController,
-  makeShowUserController,
-} from '../factories';
-
-import EnsureAuthenticatedMiddleware from '@/infra/http/middlewares/EnsureAuthenticatedMiddleware';
+import { adaptRoute } from '../adapters';
+import { makeAuthenticateUsersController } from '../factories';
 
 export default (router: Router): void => {
   router.post('/sessions', adaptRoute(makeAuthenticateUsersController()));
-  router.get(
-    '/user',
-    adaptMiddleware(new EnsureAuthenticatedMiddleware()),
-    adaptRoute(makeShowUserController()),
-  );
 };
