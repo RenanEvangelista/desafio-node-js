@@ -14,7 +14,7 @@
 * Typescript
 * Git
 * Jest
-* Postgress
+* Postgres
 * Swagger
 * Bcrypt
 * JsonWebToken
