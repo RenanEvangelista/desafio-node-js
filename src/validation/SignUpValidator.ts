@@ -10,8 +10,8 @@ export class SignUpValidator implements Validator {
       email: Joi.string().email().required(),
       password: Joi.string().required(),
       telephones: Joi.array().items({
-        number: Joi.number().min(8).max(9).required(),
-        area_code: Joi.number().max(3).min(2).required(),
+        number: Joi.number().integer().min(10000000).max(999999999).required(),
+        area_code: Joi.number().integer().max(99).min(10).required(),
       }),
     });
 
